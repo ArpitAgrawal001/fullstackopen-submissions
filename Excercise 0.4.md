@@ -7,6 +7,19 @@ sequenceDiagram
     server-->>browser: HTML document
     deactivate server
 
+    browser->>server: sended the user input to the server
+    activate server
+    server-->>browser: causes the submit event
+    deactivate server
+    
+    browser->>server:Called an Http post request from the URL:https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: responded with HTTP status code 302
+    deactivate server
+
+    Note right of browser: The browser reloads the notes page and causes three more HTTP requests.
+    
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server-->>browser: the css file
@@ -26,9 +39,9 @@ sequenceDiagram
 
     Note right of browser: The browser executes the callback function that renders the notes
     
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server:Created a new element
     activate server
-    server-->>browser: Performed the excercise: New note diagram
+    server-->>browser:Executed the excercise:New note diagram
     deactivate server
-    
-    Note right of browser: Excercise 0.4
+
+    Note right of browser:Excercise 0.4
